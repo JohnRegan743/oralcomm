@@ -1,0 +1,161 @@
+-- seatwork 1
+-- query 1
+create table members(
+id_ int primary key auto_increment,
+name_ varchar(50),
+course varchar(50),
+year_level int,
+status_ varchar(50)
+);
+
+-- query 2
+insert into members 
+VALUES (1, 'john', 'BSIT', 1, 'active'),
+(2, 'jehn', 'BSIT', 1, 'active'),
+(3, 'jihn', 'BSIT', 1, 'active'),
+(4, 'juhn', 'CHEMTECH', 2, 'active'),
+(5, 'jhan', 'CHEMTECH', 2, 'active'),
+(6, 'jhen', 'CHEMTECH', 2, 'active'),
+(7, 'jhin', 'MECHENG', 3, 'active'),
+(8, 'jhun', 'MECHENG', 3, 'active'),
+(9, 'jon', 'MECHENG', 3, 'inactive'),
+(10, 'joon', 'ENVISCI', 4, 'inactive'),
+(11, 'joni', 'ENVISCI', 4, 'inactive'),
+(12, 'johny', 'ENVISCI', 1, 'graduated'),
+(13, 'johnn', 'EDUC', 2, 'graduated'),
+(14, 'johnny', 'EDUC', 3, 'graduated'),
+(15, 'Miguel Cruz', 'EDUC', 4, 'graduated');
+
+select * from members;
+
+-- query 3
+insert into members 
+values (16, 'Alexa Reyes', 'BSIT', 1, 'active');
+
+
+-- query 4
+update members set year_level = 2 where id_ = 16;
+select * from members;
+
+-- query 5
+delete from members
+where id_ = 15;
+select * from members;
+
+-- query 6
+select * 
+from members
+where status_ = 'active';
+
+
+-----------------------------
+-- seatwork 2
+
+-- query 1
+create database shs_registry;
+create table students (
+student_id int primary key auto_increment,
+full_name varchar(50),
+strand varchar(50),
+grade_level int 
+);
+
+-- query 2
+insert into students (full_name, strand, grade_level)
+values ('Lara Dela Cruz', 'STEM', 11),
+('Marco Santos', 'ABM', 11),
+('Angel Bautista', 'HUMSS', 12);
+
+-- query 3
+insert into students (full_name, strand, grade_level)
+values ('Wawie Benamir', 'STEM', 11),
+('Isaac Baraquiel', 'STEM', 11),
+('Alex Tomate', 'ABM', 11),
+('Ej Stantillan', 'ABM', 11),
+('Ej Ignacio', 'HUMSS', 11),
+('John Regan', 'HUMSS', 11),
+
+('Mei Neroza', 'STEM', 12),
+('Megan Marvil', 'STEM', 12),
+('Rachelle Anne', 'ABM', 12),
+('Arnelyn Sagun', 'ABM', 12),
+('Llei Pagkalinawan', 'HUMSS', 12),
+('Jai Pasiliao', 'HUMSS', 12);
+
+-- query 4
+update students set grade_level = 12 where student_id = 2;
+
+
+-- query 5
+delete from students
+where student_id = 3;
+
+-- query 6
+insert into students (full_name, strand, grade_level)
+values ('Joshua Caisip', 'HUMSS', 12);
+
+
+-- query 7
+update students set strand = 'ABM' where student_id = 1;
+
+-- query 8
+delete from students
+where strand = 'stem' AND grade_level = 11;
+
+-- query 9
+select * from students;
+
+
+
+---------------------------
+
+-- lab act
+
+-- query 1
+create database garage_db;
+use garage_db;
+
+create table cars (
+car_id int primary key auto_increment,
+model_name varchar(50),
+year_made int, 
+condition_ varchar(50)
+);
+
+-- query 2
+insert into cars (model_name, year_made, condition_)
+values ('Broom', 1980, 'rusty'),
+('Broomie', 1981, 'rusty'),
+('Broomers', 1982, 'rusty'),
+('Broomer', 1983, 'rusty'),
+('Broomed', 1984, 'rusty'),
+('Broomved', 1985, 'rusty'),
+('Brook', 1986, 'running'),
+('Brooker', 1987, 'running'),
+('Brooked', 1988, 'running'),
+('Broomed', 1989, 'sold');
+
+select * from cars;
+
+-- query 3
+select * from cars
+where condition_ = 'running';
+insert into cars (model_name, year_made, condition_)
+values ('McQueen', 1979, 'running');
+
+-- query 4
+select * from cars
+where condition_ = 'rusty';
+delete from cars
+where model_name = 'Broomie' and condition_ = 'rusty';
+
+
+-- query 5
+select * from cars;
+update cars 
+set condition_ = 'restored' 
+where car_id in (4,8) and condition_ != 'sold';
+
+-- query 6
+select * from cars 
+where condition_ != 'rusty';
